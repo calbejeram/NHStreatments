@@ -45,7 +45,7 @@ function AddTreatments() {
             const treatment = { treatmentDate, clientNumber, clientName, servicePackage, serviceCommission, clientTip };
 
             Swal.fire({
-                title: "Add this to treatments?",
+                title: "Add this to your treatments?",
                 html: `<div>Treatment Details:</div>
                 <div>Date: ${treatment.treatmentDate}</div>
                 <div>Client Number: ${treatment.clientNumber}</div>
@@ -78,7 +78,11 @@ function AddTreatments() {
                 };
               });
         } else {
-            alert("Invalid Inputs");
+            Swal.fire({
+                icon: "error",
+                title: "Don't leave empty form!",
+                text: "Please fill out all the required fields!",
+              });
         }
     };
 
@@ -100,46 +104,28 @@ function AddTreatments() {
   return (
     <>
         <div>
-        <div show={show} onHide={handleClose} class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                <Modal.Header class="modal-header">
-                    <Modal.Title>
-                        <h2>Add your treatments</h2>
-                    </Modal.Title>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </Modal.Header>
-                <Modal.Body class="modal-body d-flex align-items-center justify-content-center">
-                    <button class="btn btn-primary d-flex flex-column align-items-center justify-content-center rounded-3" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">
-                        <i class="bi bi-person-fill-add me-2" style={{ fontSize: '2rem'}}></i>
-                        Add Treatment
-                    </button>
-                </Modal.Body>
-                <Modal.Footer class="modal-footer">
-                    <Button variant="danger" onClick={handleClose}>
-                        Close
-                    </Button>
-                    <Button variant="primary" onClick={handleClose}>
-                        <i class="bi bi-floppy2 me-2"></i>
-                        Save Changes
-                    </Button>
-                </Modal.Footer>
-                </div>
-            </div>
-            </div>
-            <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Add Treatment</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
                     <div class="modal-body">
                         <AddTreatmentForm treatmentDate={treatmentDate} clientNumber={clientNumber} clientName={clientName} servicePackage={servicePackage} serviceCommission={serviceCommission} clientTip={clientTip} handleTreatmentDate={handleTreatmentDate} handleClientNumber={handleClientNumber} handleClientName={handleClientName} handleServicePackage={handleServicePackage} handleServiceCommission={handleServiceCommission} handleClientTip={handleClientTip} handleSubmit={handleSubmit} handleClear={handleClear}/>
                     </div>
+                    </div>
                 </div>
             </div>
-            </div>
-            <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Add Treatments</button>
+            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <i class="bi bi-person-fill-add me-2" style={{ fontSize: "2rem"}}></i>
+                <p>Add Treatment</p>
+            </button>
         </div>
     </>
   )
 };
 
 export default AddTreatments;
+
+

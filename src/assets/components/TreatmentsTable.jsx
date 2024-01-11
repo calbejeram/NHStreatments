@@ -3,6 +3,7 @@ import { Stack } from 'react-bootstrap';
 
 function TreatmentsTable() {
     const treatmentsData = localStorage.getItem("TreatmentForm") ? JSON.parse(localStorage.getItem("TreatmentForm")) : [];
+    console.log(treatmentsData.length)
 
     let dateRows = {};
 
@@ -29,7 +30,7 @@ function TreatmentsTable() {
             <table className="table text-center border">
                 <thead>
                     <tr>
-                        {/* <th className="align-middle bg-success bg-opacity-75 text-white"><i class="bi bi-calendar me-2"></i>Date</th> */}
+                        <th className="align-middle bg-success bg-opacity-75 text-white"><i class="bi bi-calendar me-2"></i>Date</th>
                         <th className="align-middle bg-success bg-opacity-75 text-white"><i class="bi bi-hash me-2"></i>Number</th>
                         <th className="align-middle bg-success bg-opacity-75 text-white"><i class="bi bi-person-fill me-2"></i>Name</th>
                         <th className="align-middle bg-success bg-opacity-75 text-white"><i class="bi bi-box2-heart me-2"></i>Service</th>
@@ -42,11 +43,11 @@ function TreatmentsTable() {
                         const rows = dateRows[date];
                         return rows.map((info, rowIndex) => (
                             <tr key={`${index}-${rowIndex}`}>
-                                {/* {rowIndex === 0 && (
+                                {rowIndex === 0 && (
                                     <td rowSpan={rows.length} className="align-middle fw-bold bg-success bg-opacity-25">
                                         {info.treatmentDate}
                                     </td>
-                                )} */}
+                                )}
                                 <td className="align-middle bg-success bg-opacity-25">{info.clientNumber}</td>
                                 <td className="align-middle text-uppercase bg-success bg-opacity-25">{info.clientName}</td>
                                 <td className="align-middle text-uppercase bg-success bg-opacity-25">{info.servicePackage}</td>

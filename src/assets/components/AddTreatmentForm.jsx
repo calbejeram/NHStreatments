@@ -1,36 +1,39 @@
 import React from 'react';
+import { Stack } from 'react-bootstrap';
 
 const AddTreatmentForm = ({clientNumber, handleClientNumber, clientName, handleClientName, servicePackage, handleServicePackage, serviceCommission, handleServiceCommission, clientTip, handleClientTip, handleSubmit, treatmentDate, handleTreatmentDate, handleClear}) => {
   return (
     <>
         <form onSubmit={handleSubmit} >
             <div class="input-group mb-3 d-flex flex-column">
-                <label for="exampleFormControlInput1" class="form-label fw-bold">Select Date:</label>
-                <input type="date" name='date' for="date" class="form-control w-100 rounded-0" value={treatmentDate} onChange={handleTreatmentDate}/>
+                <label for="exampleFormControlInput1" class="form-label fw-bold"><i class="bi bi-calendar me-2"></i>Select Date: <span className='text-danger fw-bold'>*</span></label>
+                <input type="date" name='date' for="date" class="form-control w-100 rounded-0" value={treatmentDate} onChange={handleTreatmentDate} required/>
             </div>
             <div class="input-group mb-3 d-flex flex-column">
-                <label for="exampleFormControlInput1" class="form-label fw-bold">Client Number:</label>
-                <input type="number" class="form-control w-100 rounded-0" value={clientNumber} onChange={handleClientNumber}/>
+                <label for="exampleFormControlInput1" class="form-label fw-bold"><i class="bi bi-hash me-2"></i>Client Number: <span className='text-danger fw-bold'>*</span></label>
+                <input type="number" class="form-control w-100 rounded-0" value={clientNumber} onChange={handleClientNumber} required/>
             </div>
             <div class="input-group mb-3 d-flex flex-column">
-                <label for="exampleFormControlInput1" class="form-label fw-bold">Client Name:</label>
-                <input type="text" class="form-control w-100 rounded-0" value={clientName} onChange={handleClientName}/>
+                <label for="exampleFormControlInput1" class="form-label fw-bold"><i class="bi bi-person-fill me-2"></i>Client Name: <span className='text-danger fw-bold'>*</span></label>
+                <input type="text" class="form-control w-100 rounded-0" value={clientName} onChange={handleClientName} required/>
             </div>
             <div class="input-group mb-3 d-flex flex-column">
-                <label for="exampleFormControlInput1" class="form-label fw-bold">Service Package:</label>
-                <input type="text" class="form-control w-100 rounded-0" value={servicePackage} onChange={handleServicePackage}/>
+                <label for="exampleFormControlInput1" class="form-label fw-bold"><i class="bi bi-box2-heart me-2"></i>Service Package: <span className='text-danger fw-bold'>*</span></label>
+                <input type="text" class="form-control w-100 rounded-0" value={servicePackage} onChange={handleServicePackage} required/>
             </div>
             <div class="input-group mb-3 d-flex flex-column">
-                <label for="exampleFormControlInput1" class="form-label fw-bold">Service Commission:</label>
-                <input type="number" class="form-control w-100 rounded-0" value={serviceCommission} onChange={handleServiceCommission}/>
+                <label for="exampleFormControlInput1" class="form-label fw-bold"><i class="bi bi-cash-stack me-2"></i>Service Commission: <span className='text-danger fw-bold'>*</span></label>
+                <input type="number" class="form-control w-100 rounded-0" value={serviceCommission} onChange={handleServiceCommission} required/>
             </div>
             <div class="input-group mb-3 d-flex flex-column">
-                <label for="exampleFormControlInput1" class="form-label fw-bold">Client Tip:</label>
-                <input type="number" class="form-control w-100 rounded-0" value={clientTip} onChange={handleClientTip}/>
+                <label for="exampleFormControlInput1" class="form-label fw-bold"><i class="bi bi-cash me-2"></i>Client Tip: <span className='text-danger fw-bold'>*</span></label>
+                <input type="number" class="form-control w-100 rounded-0" value={clientTip} onChange={handleClientTip} required/>
             </div>
             <div className='d-flex flex-row'>
-                <button type='submit' className='btn btn-primary'>Add</button>
-                <button type='button' onClick={handleClear} className='btn btn-danger'>Clear</button>
+                <Stack gap={2} className="d-flex flex-row">
+                    <button type='submit' className='btn btn-success w-25'><i class="bi bi-person-fill-add me-2"></i>Add</button>
+                    <button type='button' onClick={handleClear} className='btn btn-danger w-25'><i class="bi bi-x me-2"></i>Clear</button>
+                </Stack>
             </div>
         </form>
     </>
