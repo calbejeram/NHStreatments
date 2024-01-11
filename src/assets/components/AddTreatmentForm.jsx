@@ -5,8 +5,7 @@ const AddTreatmentForm = ({clientNumber, handleClientNumber, clientName, handleC
     <>
         <form onSubmit={handleSubmit} >
             <div class="input-group mb-3 d-flex flex-column">
-                <i class="bi bi-calendar2-plus-fill me-2"></i>
-                Select Date
+                <label for="exampleFormControlInput1" class="form-label fw-bold">Select Date:</label>
                 <input type="date" name='date' for="date" class="form-control w-100 rounded-0" value={treatmentDate} onChange={handleTreatmentDate}/>
             </div>
             <div class="input-group mb-3 d-flex flex-column">

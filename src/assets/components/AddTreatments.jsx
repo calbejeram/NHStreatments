@@ -100,34 +100,6 @@ function AddTreatments() {
   return (
     <>
         <div>
-        {/* <Button variant="primary" onClick={handleShow}>
-            <i class="bi bi-person-add"></i>
-            Add Treatments
-        </Button>
-
-        <Modal show={show} onHide={handleClose}>
-            <Modal.Header closeButton>
-            <Modal.Title>
-                <Form>
-                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                    <Form.Label>Select Date</Form.Label>
-                    <Form.Control type="date"/>
-                </Form.Group>
-                </Form>
-            </Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-                <Button>Add Treatments</Button>
-            </Modal.Body>
-            <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
-                Close
-            </Button>
-            <Button variant="primary" onClick={handleClose}>
-                Save Changes
-            </Button>
-            </Modal.Footer>
-        </Modal> */}
         <div show={show} onHide={handleClose} class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
