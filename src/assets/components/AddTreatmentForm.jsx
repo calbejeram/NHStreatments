@@ -11,7 +11,7 @@ const AddTreatmentForm = ({clientNumber, handleClientNumber, clientName, handleC
             </div>
             <div class="input-group mb-3 d-flex flex-column">
                 <label for="exampleFormControlInput1" class="form-label fw-bold"><i class="bi bi-hash me-2"></i>Client Number: <span className='text-danger fw-bold'>*</span></label>
-                <input type="number" class="form-control w-100 rounded-0" value={clientNumber} onChange={handleClientNumber} required/>
+                <input type="number" class="form-control w-100 rounded-0" min={0} value={clientNumber} onChange={handleClientNumber} required/>
             </div>
             <div class="input-group mb-3 d-flex flex-column">
                 <label for="exampleFormControlInput1" class="form-label fw-bold"><i class="bi bi-person-fill me-2"></i>Client Name: <span className='text-danger fw-bold'>*</span></label>
@@ -23,11 +23,11 @@ const AddTreatmentForm = ({clientNumber, handleClientNumber, clientName, handleC
             </div>
             <div class="input-group mb-3 d-flex flex-column">
                 <label for="exampleFormControlInput1" class="form-label fw-bold"><i class="bi bi-cash-stack me-2"></i>Service Commission: <span className='text-danger fw-bold'>*</span></label>
-                <input type="number" class="form-control w-100 rounded-0" value={serviceCommission} onChange={handleServiceCommission} required/>
+                <input type="number" class="form-control w-100 rounded-0" min={0} value={serviceCommission} onChange={handleServiceCommission} required/>
             </div>
             <div class="input-group mb-3 d-flex flex-column">
                 <label for="exampleFormControlInput1" class="form-label fw-bold"><i class="bi bi-cash me-2"></i>Client Tip: <span className='text-danger fw-bold'>*</span></label>
-                <input type="number" class="form-control w-100 rounded-0" value={clientTip} onChange={handleClientTip} required/>
+                <input type="number" class="form-control w-100 rounded-0" min={0} value={clientTip} onChange={handleClientTip} required/>
             </div>
             <div className='d-flex flex-row'>
                 <Stack gap={2} className="d-flex flex-row">
