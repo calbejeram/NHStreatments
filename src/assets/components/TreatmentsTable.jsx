@@ -52,6 +52,14 @@ function TreatmentsTable() {
 
     setShowEditModal(false);
     setSelectedTreatmentIndex(null);
+
+    Swal.fire({
+        icon: "success",
+        title: "Treatment Updated",
+        text: "Your treatment has been updated.",
+        showConfirmButton: false,
+        timer: 1500
+      });
   };
 
   const handleEditClose = () => {
