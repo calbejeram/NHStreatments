@@ -58,7 +58,7 @@ function TreatmentsTable() {
         title: "Treatment Updated",
         text: "Your treatment has been updated.",
         showConfirmButton: false,
-        timer: 1500
+        timer: 1100
       });
   };
 
