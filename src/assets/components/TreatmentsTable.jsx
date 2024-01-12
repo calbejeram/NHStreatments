@@ -20,7 +20,7 @@ function TreatmentsTable() {
 
   const handleClearAll = () => {
     Swal.fire({
-      title: "Are you sure?",
+      title: "Are you sure to clear all your treatments?",
       text: "You won't be able to revert this!",
       icon: "warning",
       showCancelButton: true,
@@ -69,7 +69,7 @@ function TreatmentsTable() {
 
   const handleDelete = (index) => {
     Swal.fire({
-      title: "Are you sure?",
+      title: "Are you sure to delete this treatment?",
       text: "You won't be able to revert this!",
       icon: "warning",
       showCancelButton: true,
@@ -118,25 +118,25 @@ function TreatmentsTable() {
       <table className="table text-center border">
         <thead>
           <tr>
-            <th className="align-middle bg-success bg-opacity-75 text-white">
+            <th className="align-middle bg-success bg-opacity-75 text-white small">
               <i className="bi bi-calendar me-2"></i>Date
             </th>
-            <th className="align-middle bg-success bg-opacity-75 text-white">
+            <th className="align-middle bg-success bg-opacity-75 text-white small">
               <i className="bi bi-hash me-2"></i>Number
             </th>
-            <th className="align-middle bg-success bg-opacity-75 text-white">
+            <th className="align-middle bg-success bg-opacity-75 text-white small">
               <i className="bi bi-person-fill me-2"></i>Name
             </th>
-            <th className="align-middle bg-success bg-opacity-75 text-white">
+            <th className="align-middle bg-success bg-opacity-75 text-white small">
               <i className="bi bi-box2-heart me-2"></i>Service
             </th>
-            <th className="align-middle bg-success bg-opacity-75 text-white">
+            <th className="align-middle bg-success bg-opacity-75 text-white small">
               <i className="bi bi-cash-stack me-2"></i>Commission
             </th>
-            <th className="align-middle bg-success bg-opacity-75 text-white">
+            <th className="align-middle bg-success bg-opacity-75 text-white small">
               <i className="bi bi-cash me-2"></i>Tip
             </th>
-            <th className="align-middle bg-success bg-opacity-75 text-white">
+            <th className="align-middle bg-success bg-opacity-75 text-white small">
               <i className="bi bi-gear me-2"></i>Actions
             </th>
           </tr>
@@ -149,31 +149,28 @@ function TreatmentsTable() {
               </td>
             </tr>
           ) : (
-            Object.keys(dateRows).map((date, index) => {
-              const rows = dateRows[date];
-              return rows.map((info, rowIndex) => (
-                <tr key={`${index}-${rowIndex}`}>
-                  {rowIndex === 0 && (
-                    <td rowSpan={rows.length} className="align-middle fw-bold bg-success bg-opacity-25">
-                      {new Date(info.treatmentDate).toLocaleDateString('en-US', { year: '2-digit', month: 'numeric', day: 'numeric' })}
-                    </td>
-                  )}
-                  <td className="align-middle bg-success bg-opacity-25">{info.clientNumber}</td>
-                  <td className="align-middle text-uppercase bg-success bg-opacity-25">{info.clientName}</td>
-                  <td className="align-middle text-uppercase bg-success bg-opacity-25">{info.servicePackage}</td>
-                  <td className="align-middle fw-bold text-danger bg-success bg-opacity-25">{`₱ ${info.serviceCommission}`}</td>
-                  <td className="align-middle fw-bold text-success bg-success bg-opacity-25">{`₱ ${info.clientTip}`}</td>
-                  <td className="align-middle fw-bold text-success bg-success bg-opacity-25">
-                    <button className="btn btn-warning me-2" onClick={() => handleEdit(index)}>
-                      <i className="bi bi-pencil-square"></i>
-                    </button>
-                    <button className="btn btn-danger" onClick={() => handleDelete(index)}>
-                      <i className="bi bi-trash"></i>
-                    </button>
+            treatmentsData.map((info, index) => (
+              <tr key={index}>
+                {index === 0 || info.treatmentDate !== treatmentsData[index - 1].treatmentDate ? (
+                  <td rowSpan={dateRows[info.treatmentDate].length} className="align-middle fw-bold bg-success bg-opacity-25">
+                    {new Date(info.treatmentDate).toLocaleDateString('en-US', { year: '2-digit', month: 'numeric', day: 'numeric' })}
                   </td>
-                </tr>
-              ));
-            })
+                ) : null}
+                <td className="align-middle bg-success bg-opacity-25 small">{info.clientNumber}</td>
+                <td className="align-middle text-uppercase bg-success bg-opacity-25 small">{info.clientName}</td>
+                <td className="align-middle text-uppercase bg-success bg-opacity-25 small">{info.servicePackage}</td>
+                <td className="align-middle fw-bold text-danger bg-success bg-opacity-25 small">{`₱ ${info.serviceCommission}`}</td>
+                <td className="align-middle fw-bold text-success bg-success bg-opacity-25 small">{`₱ ${info.clientTip}`}</td>
+                <td className="align-middle fw-bold text-success bg-success bg-opacity-25 small">
+                  <button className="btn btn-warning me-2" onClick={() => handleEdit(index)}>
+                    <i className="bi bi-pencil-square"></i>
+                  </button>
+                  <button className="btn btn-danger" onClick={() => handleDelete(index)}>
+                    <i className="bi bi-trash"></i>
+                  </button>
+                </td>
+              </tr>
+            ))
           )}
         </tbody>
       </table>

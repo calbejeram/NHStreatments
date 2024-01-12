@@ -46,13 +46,13 @@ function AddTreatments() {
 
             Swal.fire({
                 title: "Add this to your treatments?",
-                html: `<div>Treatment Details:</div>
-                <div>Date: ${treatment.treatmentDate}</div>
-                <div>Client Number: ${treatment.clientNumber}</div>
-                <div>Client Name: ${treatment.clientName}</div>
-                <div>Service Package: ${treatment.servicePackage}</div>
-                <div>Service Commission: ${treatment.serviceCommission}</div>
-                <div>Client Tip: ${treatment.clientTip}</div>`,
+                html: `<div><strong>Treatment Details:</strong></div>
+                <div>Date: <strong>${treatment.treatmentDate}</strong></div>
+                <div>Client Number: <strong>${treatment.clientNumber}</strong></div>
+                <div>Client Name: <strong>${treatment.clientName}</strong></div>
+                <div>Service Package: <strong>${treatment.servicePackage}</strong></div>
+                <div>Service Commission: <strong>${treatment.serviceCommission}</strong></div>
+                <div>Client Tip: <strong>${treatment.clientTip}</strong></div>`,
                 icon: "warning",
                 showCancelButton: true,
                 confirmButtonColor: "#3085d6",

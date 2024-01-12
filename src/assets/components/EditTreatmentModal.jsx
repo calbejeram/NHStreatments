@@ -50,7 +50,7 @@ function EditTreatmentModal({ treatmentData, onSave, onClose }) {
             </div>
           ))}
           <Button variant="success" type="submit">
-            Update Treatment
+            <i class="bi bi-floppy2 me-2"></i>Update Treatment
           </Button>
         </form>
       </Modal.Body>
