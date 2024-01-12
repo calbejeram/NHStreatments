@@ -103,15 +103,15 @@ function TreatmentsTable() {
         </button>
       </div>
       <div className="mb-1 d-flex align-items-end justify-content-end w-100">
-        <p className="fw-bold bg-primary bg-opacity-50 rounded-3 p-2 border border-dark">
+        <p className="fw-bold bg-primary bg-opacity-50 rounded-3 p-2 border border-dark small">
           <i className="bi bi-cash-stack me-2"></i>Total Earnings: ₱ {totalCombined.toFixed(2)}
         </p>
       </div>
       <div className="mb-3 d-flex align-items-end justify-content-end w-100">
-        <p className="me-2 fw-bold bg-danger bg-opacity-50 rounded-3 p-2 border border-dark m-0">
+        <p className="me-2 fw-bold bg-danger bg-opacity-50 rounded-3 p-2 border border-dark m-0 small">
           <i className="bi bi-cash-stack me-2"></i>Commission: ₱ {overallCommission.toFixed(2)}
         </p>
-        <p className="fw-bold bg-success bg-opacity-50 rounded-3 border border-dark p-2 m-0">
+        <p className="fw-bold bg-success bg-opacity-50 rounded-3 border border-dark p-2 m-0 small">
           <i className="bi bi-cash me-2"></i>Tip: ₱ {overallTip.toFixed(2)}
         </p>
       </div>
@@ -152,7 +152,7 @@ function TreatmentsTable() {
             treatmentsData.map((info, index) => (
               <tr key={index}>
                 {index === 0 || info.treatmentDate !== treatmentsData[index - 1].treatmentDate ? (
-                  <td rowSpan={dateRows[info.treatmentDate].length} className="align-middle fw-bold bg-success bg-opacity-25">
+                  <td rowSpan={dateRows[info.treatmentDate].length} className="align-middle fw-bold bg-success bg-opacity-25 small">
                     {new Date(info.treatmentDate).toLocaleDateString('en-US', { year: '2-digit', month: 'numeric', day: 'numeric' })}
                   </td>
                 ) : null}
