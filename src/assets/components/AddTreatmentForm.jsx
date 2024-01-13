@@ -32,7 +32,7 @@ const AddTreatmentForm = ({clientNumber, handleClientNumber, clientName, handleC
             <div className='d-flex flex-row'>
                 <Stack gap={2} className="d-flex flex-row">
                     <button type='submit' className='btn btn-success w-25'><i class="bi bi-person-fill-add me-2"></i>Add</button>
-                    <button type='button' onClick={handleClear} className='btn btn-danger w-25'><i class="bi bi-x me-2"></i>Clear</button>
+                    <button type='button' onClick={handleClear} className='btn btn-danger w-25'><i class="bi bi-arrow-counterclockwise me-2"></i>Reset</button>
                 </Stack>
             </div>
         </form>
