@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Form, Modal } from 'react-bootstrap';
 import AddTreatmentForm from './AddTreatmentForm';
 import Swal from 'sweetalert2';
+import { Modal, Button } from 'react-bootstrap';
 
 function AddTreatments() {
     const [show, setShow] = useState(false);
@@ -40,25 +40,25 @@ function AddTreatments() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-    
+
         if (treatmentDate !== "" && clientNumber > 0 && clientName !== "" && servicePackage !== "" && serviceCommission > 0 && clientTip >= 0) {
             const treatment = { treatmentDate, clientNumber, clientName, servicePackage, serviceCommission, clientTip };
 
             Swal.fire({
                 title: "Add this to your treatments?",
                 html: `<div><strong>Treatment Details:</strong></div>
-                <div>Date: <strong>${treatment.treatmentDate}</strong></div>
-                <div>Client Number: <strong>${treatment.clientNumber}</strong></div>
-                <div>Client Name: <strong>${treatment.clientName}</strong></div>
-                <div>Service Package: <strong>${treatment.servicePackage}</strong></div>
-                <div>Service Commission: <strong>${treatment.serviceCommission}</strong></div>
-                <div>Client Tip: <strong>${treatment.clientTip}</strong></div>`,
+            <div>Date: <strong>${treatment.treatmentDate}</strong></div>
+            <div>Client Number: <strong>${treatment.clientNumber}</strong></div>
+            <div>Client Name: <strong>${treatment.clientName}</strong></div>
+            <div>Service Package: <strong>${treatment.servicePackage}</strong></div>
+            <div>Service Commission: <strong>${treatment.serviceCommission}</strong></div>
+            <div>Client Tip: <strong>${treatment.clientTip}</strong></div>`,
                 icon: "warning",
                 showCancelButton: true,
                 confirmButtonColor: "#3085d6",
                 cancelButtonColor: "#d33",
                 confirmButtonText: "Yes, add it!"
-              }).then((result) => {
+            }).then((result) => {
                 if (result.isConfirmed) {
                     setTreatmentArray([...treatmentArray, treatment]);
                     setTreatmentDate("");
@@ -76,13 +76,13 @@ function AddTreatments() {
                     });
                     window.location.reload();
                 };
-              });
+            });
         } else {
             Swal.fire({
                 icon: "error",
                 title: "Don't leave empty form!",
                 text: "Please fill out all the required fields!",
-              });
+            });
         }
     };
 
@@ -94,38 +94,44 @@ function AddTreatments() {
         setServiceCommission("");
         setClientTip("");
     };
-    
+
 
     useEffect(() => {
         localStorage.setItem("TreatmentForm", JSON.stringify(treatmentArray))
     }, [treatmentArray]);
 
+    return (
+        <>
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Add Treatment</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <AddTreatmentForm
+                        treatmentDate={treatmentDate}
+                        clientNumber={clientNumber}
+                        clientName={clientName}
+                        servicePackage={servicePackage}
+                        serviceCommission={serviceCommission}
+                        clientTip={clientTip}
+                        handleTreatmentDate={handleTreatmentDate}
+                        handleClientNumber={handleClientNumber}
+                        handleClientName={handleClientName}
+                        handleServicePackage={handleServicePackage}
+                        handleServiceCommission={handleServiceCommission}
+                        handleClientTip={handleClientTip}
+                        handleSubmit={handleSubmit}
+                        handleClear={handleClear}
+                    />
+                </Modal.Body>
+            </Modal>
 
-  return (
-    <>
-        <div>
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Add Treatment</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <AddTreatmentForm treatmentDate={treatmentDate} clientNumber={clientNumber} clientName={clientName} servicePackage={servicePackage} serviceCommission={serviceCommission} clientTip={clientTip} handleTreatmentDate={handleTreatmentDate} handleClientNumber={handleClientNumber} handleClientName={handleClientName} handleServicePackage={handleServicePackage} handleServiceCommission={handleServiceCommission} handleClientTip={handleClientTip} handleSubmit={handleSubmit} handleClear={handleClear}/>
-                    </div>
-                    </div>
-                </div>
-            </div>
-            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                <i class="bi bi-person-fill-add me-2" style={{ fontSize: "2rem"}}></i>
+            <Button variant="success" onClick={handleShow}>
+                <i class="bi bi-person-fill-add me-2" style={{ fontSize: "2rem" }}></i>
                 <p>Add Treatment</p>
-            </button>
-        </div>
-    </>
-  )
+            </Button>
+        </>
+    )
 };
 
 export default AddTreatments;
-
-

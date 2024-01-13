@@ -8,8 +8,7 @@ function Main() {
         <div className='d-flex flex-column-reverse align-items-center justify-content-center'>
             <AddTreatments/>
             <TreatmentsTable/>
-        </div>
-        
+        </div>  
     </>
   )
 };
