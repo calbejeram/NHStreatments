@@ -115,7 +115,7 @@ function TreatmentsTable() {
           <i className="bi bi-cash me-2"></i>Tip: ₱ {overallTip.toFixed(2)}
         </p>
       </div>
-      <table className="table text-center border">
+      <table className="table text-center border border-dark">
         <thead>
           <tr>
             <th className="align-middle bg-success bg-opacity-75 text-white small">
@@ -152,7 +152,7 @@ function TreatmentsTable() {
             treatmentsData.map((info, index) => (
               <tr key={index}>
                 {index === 0 || info.treatmentDate !== treatmentsData[index - 1].treatmentDate ? (
-                  <td rowSpan={dateRows[info.treatmentDate].length} className="align-middle fw-bold bg-success bg-opacity-25 small">
+                  <td rowSpan={dateRows[info.treatmentDate].length} className="fw-bold bg-success bg-opacity-50 small border border-dark">
                     {`${new Date(info.treatmentDate).toLocaleDateString('en-US', { month: 'numeric', day: 'numeric', year: '2-digit' })} (${new Date(info.treatmentDate).toLocaleDateString('en-US', { weekday: 'short' })})`}
                   </td>
                 ) : null}
