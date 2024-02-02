@@ -118,25 +118,25 @@ function TreatmentsTable() {
       <table className="table text-center border border-dark">
         <thead>
           <tr>
-            <th className="align-middle bg-success bg-opacity-75 text-white small">
+            <th className="align-middle bg-success bg-opacity text-white small">
               <i className="bi bi-calendar me-2"></i>Date (Day)
             </th>
-            <th className="align-middle bg-success bg-opacity-75 text-white small">
+            <th className="align-middle bg-success bg-opacity text-white small">
               <i className="bi bi-hash me-2"></i>Number
             </th>
-            <th className="align-middle bg-success bg-opacity-75 text-white small">
+            <th className="align-middle bg-success bg-opacity text-white small">
               <i className="bi bi-person-fill me-2"></i>Name
             </th>
-            <th className="align-middle bg-success bg-opacity-75 text-white small">
+            <th className="align-middle bg-success bg-opacity text-white small">
               <i className="bi bi-box2-heart me-2"></i>Service
             </th>
-            <th className="align-middle bg-success bg-opacity-75 text-white small">
+            <th className="align-middle bg-success bg-opacity text-white small">
               <i className="bi bi-cash-stack me-2"></i>Commission
             </th>
-            <th className="align-middle bg-success bg-opacity-75 text-white small">
+            <th className="align-middle bg-success bg-opacity text-white small">
               <i className="bi bi-cash me-2"></i>Tip
             </th>
-            <th className="align-middle bg-success bg-opacity-75 text-white small">
+            <th className="align-middle bg-success bg-opacity text-white small">
               <i className="bi bi-gear me-2"></i>Actions
             </th>
           </tr>
